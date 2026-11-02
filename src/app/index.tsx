@@ -50,14 +50,12 @@ export default function RepositoriesScreen() {
   };
 
   const handleOpenAdd = () => {
-    // 3. Ao clicar no +, navegar para a tela de adicionar
     router.push('/add');
   };
 
   return (
     <SafeAreaView
       style={[styles.safeArea, isDark ? styles.safeAreaDark : styles.safeAreaLight]}>
-      {/* Configuração do Header com botões + e - (Requisitos 3 e 7) */}
       <Stack.Screen
         options={{
           title: 'Repositórios GitHub',
@@ -67,7 +65,6 @@ export default function RepositoriesScreen() {
           },
           headerRight: () => (
             <View style={styles.headerActions}>
-              {/* Requisito 7: Ao lado do +, coloque um - para limpar os dados salvos */}
               <Pressable
                 style={({ pressed }) => [
                   styles.headerButton,
@@ -81,7 +78,6 @@ export default function RepositoriesScreen() {
                 <Text style={styles.minusButtonText}>−</Text>
               </Pressable>
 
-              {/* Requisito 3: Botão + que navega para a tela de adicionar repositório */}
               <Pressable
                 style={({ pressed }) => [
                   styles.headerButton,

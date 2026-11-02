@@ -53,10 +53,8 @@ export function RepositoryProvider({ children }: { children: React.ReactNode }) 
     }
 
     try {
-      // 4. Buscar na API do GitHub usando axios
       const repoData = await fetchRepository(trimmedOwner, trimmedRepo);
 
-      // Verificar se o repositório já está na lista
       const alreadyExists = repositories.some(
         (repo) => repo.id === repoData.id || repo.full_name.toLowerCase() === repoData.full_name.toLowerCase()
       );
@@ -65,7 +63,6 @@ export function RepositoryProvider({ children }: { children: React.ReactNode }) 
         return { success: false, message: 'Este repositório já está salvo na listagem.' };
       }
 
-      // Adiciona no topo da lista e persiste no AsyncStorage (Item 6)
       const updatedList = [repoData, ...repositories];
       await saveStoredRepositories(updatedList);
       setRepositories(updatedList);

@@ -39,9 +39,7 @@ export function RepositoryCard({ repository, onDelete }: RepositoryCardProps) {
         pressed && styles.cardPressed,
       ]}
       onPress={handleOpenGitHub}>
-      {/* Seção do Dono (Owner) */}
       <View style={styles.ownerSection}>
-        {/* Dado do Dono 1: Foto/Avatar */}
         <Image
           source={{ uri: repository.owner.avatar_url }}
           style={styles.avatar}
@@ -57,7 +55,6 @@ export function RepositoryCard({ repository, onDelete }: RepositoryCardProps) {
             {repository.owner.login}
           </Text>
 
-          {/* Dado do Dono 2: Tipo de conta e ID/Perfil */}
           <View style={styles.ownerMetaRow}>
             <View
               style={[
@@ -117,14 +114,12 @@ export function RepositoryCard({ repository, onDelete }: RepositoryCardProps) {
           {repository.name}
         </Text>
 
-        {/* Dado do Repositório 1: Descrição */}
         <Text
           style={[styles.repoDescription, isDark ? styles.textMutedDark : styles.textMutedLight]}
           numberOfLines={3}>
           {repository.description ? repository.description : 'Sem descrição cadastrada'}
         </Text>
 
-        {/* Dado do Repositório 2: Estatísticas (Estrelas, Linguagem e Forks) */}
         <View style={styles.statsContainer}>
           <View style={[styles.statItem, isDark ? styles.statItemDark : styles.statItemLight]}>
             <Text style={styles.statIcon}>⭐</Text>

@@ -39,7 +39,7 @@ export default function AddRepositoryScreen() {
     setErrorMessage(null);
 
     if (!trimmedOwner || !trimmedRepo) {
-      showAlert('Campos obrigatórios', 'Por favor, informe tanto o ownerid quanto o repoid.');
+      showAlert('Campos obrigatórios', 'informe tanto o ownerid quanto o repoid.');
       setErrorMessage('Preencha os campos ownerid e repoid.');
       return;
     }
@@ -50,7 +50,6 @@ export default function AddRepositoryScreen() {
       const result = await addRepository(trimmedOwner, trimmedRepo);
 
       if (result.success) {
-        // Sucesso ao buscar na API do GitHub com Axios e salvar no AsyncStorage
         router.back();
       } else {
         const errorText = result.message || 'Falha ao buscar dados do repositório.';
@@ -86,7 +85,6 @@ export default function AddRepositoryScreen() {
             para buscar na API do GitHub.
           </Text>
 
-          {/* Campo 1: ownerid */}
           <View style={styles.inputGroup}>
             <Text style={[styles.label, isDark ? styles.textDark : styles.textLight]}>
               Owner ID (Dono do repositório) *
@@ -110,7 +108,6 @@ export default function AddRepositoryScreen() {
             />
           </View>
 
-          {/* Campo 2: repoid */}
           <View style={styles.inputGroup}>
             <Text style={[styles.label, isDark ? styles.textDark : styles.textLight]}>
               Repo ID (Nome do repositório) *
@@ -134,14 +131,12 @@ export default function AddRepositoryScreen() {
             />
           </View>
 
-          {/* Mensagem de Erro (caso ocorra) */}
           {errorMessage ? (
             <View style={styles.errorBox}>
               <Text style={styles.errorText}>⚠️ {errorMessage}</Text>
             </View>
           ) : null}
 
-          {/* Botões de Ação: Adicionar e Cancelar */}
           <View style={styles.buttonsContainer}>
             <Pressable
               style={({ pressed }) => [
